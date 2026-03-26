@@ -10,13 +10,14 @@
     <!--custom css-->
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="home.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
 <body>
     <!--header-->
     <header class="active">
 
-        <a href="#" class="logo">Abubakar<i class='bx bx-code-alt logo-icon'></i></a>
+        <a href="#" class="logo">Portfolio<i class='bx bx-code-alt logo-icon'></i></a>
 
         <i class='bx bx-menu' id="menu-icon"></i>
 
@@ -64,7 +65,8 @@
                 <div class="sci">
                     <a href="https://github.com/ItsAbubakar786" target="_blank"><i class='bx bxl-github'></i></a>
                     <a href="https://www.linkedin.com/in/abubakar-ansari-882a31363/"><i class='bx bxl-linkedin'></i></a>
-                    <a href="mailto:abubakar7518565317@gmail.com"><i class='bx bxs-envelope'></i></a>
+                    <a href="https://mail.google.com/mail/?view=cm&to=abubakar7518565317@gmail.com"><i
+                            class='bx bxs-envelope'></i></a>
                     <!--<a href="#"><i class='bx bxl-youtube'></i></a>-->
                 </div>
             </div>
@@ -82,7 +84,7 @@
     <section class="services">
         <h2 class="heading">My <span>Services</span></h2>
         <div class="services-container">
-            <div class="services-box">
+            <div class="services-box" id="spacer">
                 <div class="icon">
                     <i class='bx bx-code-alt'></i>
                     <a href="#"><i class='bx bx-arrow-back'></i></a>
@@ -525,7 +527,7 @@
                     <i class='bx bxs-phone'></i>
                     <div class="detail">
                         <p>phone</p>
-                        <p>(+91) 7518 5653 17</p>
+                        <p><a href="tel:+7518565317">+91 7518565317</a></p>
                     </div>
                 </div>
 
@@ -533,7 +535,9 @@
                     <i class='bx bxs-envelope'></i>
                     <div class="detail">
                         <p>Email</p>
-                        <p>abubakar@gmail.com</p>
+                        <p><a
+                                href="https://mail.google.com/mail/?view=cm&to=abubakar7518565317@gmail.com">abubakar7518565317@gmail.com</a>
+                        </p>
                     </div>
                 </div>
 
@@ -547,19 +551,17 @@
             </div>
 
             <div class="contact-box">
-                <form action="https://formsubmit.co/abubakar7518565317@gmail.com" method="post">
-                    <input type="hidden" name="_capcha" value="false">
-                    <input type="hidden" name="_next"
-                        value="https://itsabubakar786.github.io/portfolio-website/success.html">
+                <form  id="contact-form">
+
                     <h2 class="heading">Contact <span>Me!</span></h2>
                     <div class="field-box">
-                        <input type="text" name="name" placeholder="Full Name" required>
-                        <input type="email" name="email" placholder="Email Address" required>
-                        <input type="text" name="phone" placeholder="Phone Number" required>
-                        <input type="text" name="email_subject" placeholder="Email Subject" required>
-                        <textarea name="message" id="" placeholder="Your Massage" required></textarea>
+                        <input type="text" id="name" name="name" placeholder="Full Name" required>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <input type="text" id="phone" name="phone" placeholder="Phone Number" required>
+                        <input type="text" id="email_subject" name="email_subject" placeholder="Email Subject" required>
+                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
                     </div>
-                    <button type="submit" class="btn">Send Message</button>
+                    <button type="submit" class="btn" id="send-msg">Send Message</button>
                 </form>
             </div>
         </div>
@@ -577,7 +579,8 @@
                     <a href="https://github.com/ItsAbubakar786"><i class='bx bxl-github'></i></a>
                     <a href="https://www.linkedin.com/in/abubakar-ansari-882a31363/"><i class='bx bxl-linkedin'></i></a>
                     <!--<a href="#"><i class='bx bxl-instagram'></i></a>-->
-                    <a href="abubakar0786@gmail.com"><i class='bx bxs-envelope'></i></a>
+                    <a href="https://mail.google.com/mail/?view=cm&to=abubakar7518565317@gmail.com"><i
+                            class='bx bxs-envelope'></i></a>
 
                 </div>
 
@@ -592,7 +595,22 @@
 
 
 
+
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init({
+                publicKey: "MDKdvNao8smAtxaHa",
+            });
+        })();
+    </script>
+
+    <script src="contact.js"></script>
     <script src="script.js"></script>
+     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 
 </html>
