@@ -3,7 +3,7 @@
 This is my personal portfolio website showcasing my skills, projects, and contact information.
 
 ## 🚀 Live Demo
-https://itsabubakar786.github.io/portfolio-website/
+https://abubakar-myportfolio.netlify.app/
 
 
 ## 🛠️ Technologies Used
