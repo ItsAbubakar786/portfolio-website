@@ -49,48 +49,74 @@ const sendBtn = document.getElementById("send-msg");
 const originalText = sendBtn.innerHTML;
 
 form.addEventListener("submit", function (e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    // prevent double click
-    if (sendBtn.disabled) return;
+  // prevent double click
+  if (sendBtn.disabled) return;
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const subject = document.getElementById("email_subject").value.trim();
-    const message = document.getElementById("message").value.trim();
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const subject = document.getElementById("email_subject").value.trim();
+  const message = document.getElementById("message").value.trim();
 
-    // validation
-    if (!name || !email || !phone || !subject || !message) {
-        alert("Please fill all fields!");
-        return;
-    }
+  // validation
+  if (!name || !email || !phone || !subject || !message) {
+    /*  alert("Please fill all fields!"); */
+    Toastify({
+      text: "Please fill all fields!",
+      duration: 3500,
+      gravity: "top",
+      position: "right",
+      close: true,
+      className: "premium-toast",
+    }).showToast();
+    return;
+  }
 
-    // button loading
-    sendBtn.innerHTML = "Sending...";
-    sendBtn.disabled = true;
+  // button loading
+  sendBtn.innerHTML = "Sending...";
+  sendBtn.disabled = true;
 
-    emailjs.send("615280abc", "template_kpj6plm", {
-        name: name,
-        email: email,
-        phone: phone,
-        email_subject: subject,
-        message: message,
+  emailjs
+    .send("615280abc", "template_kpj6plm", {
+      name: name,
+      email: email,
+      phone: phone,
+      email_subject: subject,
+      message: message,
     })
     .then(() => {
-        // success
-        alert("Message Sent Successfully ✅");
+      // success
+      /* alert("Message Sent Successfully ✅"); */
+      Toastify({
+        text: "✓ Message sent successfully!",
+        duration: 3500,
+        gravity: "top",
+        position: "right",
+        close: true,
+        className: "premium-toast",
+      }).showToast();
 
-        // reset form
-        form.reset();
+      // reset form
+      form.reset();
     })
     .catch((error) => {
-        console.log(error);
-        alert("Something went wrong ❌");
+      console.log(error);
+      /* alert("Something went wrong ❌"); */
+      Toastify({
+        text: "✕ Something went wrong. Please try again.",
+        duration: 3500,
+        gravity: "top",
+        position: "right",
+        close: true,
+        className: "premium-toast",
+      }).showToast();
     })
+
     .finally(() => {
-        // reset button
-        sendBtn.innerHTML = originalText;
-        sendBtn.disabled = false;
+      // reset button
+      sendBtn.innerHTML = originalText;
+      sendBtn.disabled = false;
     });
 });
